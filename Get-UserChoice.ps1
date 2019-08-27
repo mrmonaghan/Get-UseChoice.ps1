@@ -20,14 +20,14 @@ param(
     Begin {
         $DefaultChoiceIndex = -1
         $Options = @()
-        $i = 0
+        $i = 1
         }
     Process {
         foreach ($value in $Data) {
-            $i++
-            $NewChoice = [System.Management.Automation.Host.ChoiceDescription]::new("&$value")
+            $NewChoice = [System.Management.Automation.Host.ChoiceDescription]::new("&$i. $value")
             $NewChoice | Add-Member -MemberType NoteProperty -Name Name -Value $value
             $Options += $NewChoice
+            $i++
             }
         }
 
